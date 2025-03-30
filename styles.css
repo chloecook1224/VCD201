@@ -1,0 +1,117 @@
+
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #373B41;
+}
+
+h2 {
+    font-size: 24px;
+    color: #373B41;
+}
+
+p {
+    font-size: 18px;
+    color: #373B41;
+}
+
+footer {
+    background-color: #2f4f4f;
+    color: white;
+    text-align: left;
+    padding: 10px;
+
+}
+
+footer p {
+    color: white;
+}
+
+@font-face {
+    font-family: 'Sneakers';
+    src: url('fonts/Sneakers.woff2') format('woff2'),
+         url('fonts/Sneakers.woff') format('woff'),
+         url('fonts/Sneakers.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    background-color: #4a4f4c;
+    margin: 0;
+    font-family: 'Sneakers', 'Times New Roman', Times, serif;
+}
+
+header {
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Keeps the logo and nav aligned horizontally */
+    background-color: #2f4f4f;
+    padding: 0px;
+    color: white;
+    padding-right: 10px;
+    position: relative; /* Required for absolute positioning inside */
+}
+
+.logo {
+    display: flex;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 2;
+    background-color: #2f4f4f; /* Set the background color */
+    padding: 12px 20px; 
+    border-top-right-radius: 20px; 
+    border-bottom-right-radius: 20px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Adds a shadow */
+    position: relative; /* Ensures that the box will be positioned relative to the logo */
+}
+
+.box {
+    display: flex;
+    width: 200px;
+    height: 51px;
+    z-index: 1;
+    background-color: #4a4f4c; /* Set the background color */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Adds a shadow */
+    position: absolute; /* Positions the box beneath the logo */
+    top: -8px; /* Moves the box directly under the logo */
+    left: 0; /* Aligns the box with the left side of the logo */
+    margin-top: 10px; /* Adds a little space between the logo and box */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Adds a shadow */
+}
+
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.content {
+    background-color: #f3e8d0;
+    padding: 20px;
+    text-align: left;
+}
+
+
+
+
+
