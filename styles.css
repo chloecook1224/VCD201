@@ -1,33 +1,7 @@
+/* Import Fonts */
 
 
-h1 {
-    font-size: 28px;
-    font-weight: bold;
-    color: #373B41;
-}
-
-h2 {
-    font-size: 24px;
-    color: #373B41;
-}
-
-p {
-    font-size: 18px;
-    color: #373B41;
-}
-
-footer {
-    background-color: #2f4f4f;
-    color: white;
-    text-align: left;
-    padding: 10px;
-
-}
-
-footer p {
-    color: white;
-}
-
+/* Custom Font */
 @font-face {
     font-family: 'Sneakers';
     src: url('fonts/Sneakers.woff2') format('woff2'),
@@ -36,56 +10,83 @@ footer p {
     font-weight: normal;
     font-style: normal;
 }
-
-body {
-    background-color: #4a4f4c;
-    margin: 0;
-    font-family: 'Sneakers', 'Times New Roman', Times, serif;
+@font-face {
+    font-family: 'Street';
+    src: url('fonts/StreetArt-MVd5n.ttf') format('ttf'),
+         url('fonts/StreetArt-MVd5n.ttf') format('ttf'),
+         url('fonts/StreetArt-MVd5n.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
+
+/* Base Styles */
+body {
+    margin: 0;
+    background-color: #4a4f4c;
+    font-family: 'Sneakers', 'Times New Roman', Times, serif;
+    color: #f3e8d0;
+}
+
+h1, h2, p {
+    color: #f3e8d0;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 24px;
+}
+
+p {
+    font-size: 18px;
+}
+
+/* Header */
 header {
-    z-index: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center; /* Keeps the logo and nav aligned horizontally */
+    align-items: center;
     background-color: #2f4f4f;
-    padding: 0px;
+    padding: 0 10px;
     color: white;
-    padding-right: 10px;
-    position: relative; /* Required for absolute positioning inside */
+    position: relative;
+    z-index: 0;
 }
 
+/* Logo */
 .logo {
     display: flex;
     font-size: 24px;
     font-weight: bold;
-    z-index: 2;
-    background-color: #2f4f4f; /* Set the background color */
-    padding: 12px 20px; 
-    border-top-right-radius: 20px; 
+    background-color: #2f4f4f;
+    padding: 12px 20px;
+    border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Adds a shadow */
-    position: relative; /* Ensures that the box will be positioned relative to the logo */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+    position: relative;
 }
 
 .box {
     display: flex;
     width: 200px;
     height: 51px;
-    z-index: 1;
-    background-color: #4a4f4c; /* Set the background color */
+    background-color: #4a4f4c;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Adds a shadow */
-    position: absolute; /* Positions the box beneath the logo */
-    top: -8px; /* Moves the box directly under the logo */
-    left: 0; /* Aligns the box with the left side of the logo */
-    margin-top: 10px; /* Adds a little space between the logo and box */
-    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Adds a shadow */
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: -8px;
+    left: 0;
+    margin-top: 10px;
+    z-index: 1;
 }
 
-
-
+/* Navigation Menu */
 nav ul {
     list-style: none;
     display: flex;
@@ -99,19 +100,690 @@ nav ul li a {
     font-size: 18px;
 }
 
-.hero img {
+/* Hamburger Icon */
+.hamburger {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero,
+.hero img,
+.hero-img {
     width: 100%;
     height: auto;
     display: block;
 }
 
+/* Content Section */
 .content {
-    background-color: #f3e8d0;
+    background-color: #373B41;
     padding: 20px;
     text-align: left;
+}
+
+/* Footer */
+footer {
+    background-color: #2f4f4f;
+    color: white;
+    text-align: left;
+    padding: 10px;
+}
+
+footer p {
+    color: white;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        /* background-color: #2f4f4f; */
+        position: absolute;
+        top: 30px;
+        left: 0;
+        transform: translateY(-100%);
+        transition: transform 0.3s ease-in-out, max-height 0.5s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    #nav-links.active ul {
+        transform: translateY(0);
+        max-height: 500px;
+        animation: bounceIn 0.8s ease forwards;
+    }
+}
+
+/* --- Animations --- */
+@keyframes bounceIn {
+    10% {
+        transform: translateY(-50%) scaleY(0);
+    }
+    60% {
+        transform: translateY(20%) scaleY(1.1);
+    }
+    100% {
+        transform: translateY(0) scaleY(1);
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        transform: translateY(0) scaleY(1);
+    }
+    60% {
+        transform: translateY(-20%) scaleY(1.1);
+    }
+    100% {
+        transform: translateY(50%) scaleY(0);
+        max-height: 0;
+        overflow: hidden;
+    }
+}
+
+/* Initially, hide the navigation menu */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    /* background-color: #2f4f4f; */
+    position: absolute;
+    top: 20px;
+    left: 0;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, transform 0.3s ease; /* Smooth animation */
+    transform: translateY(-50%); /* Start with the menu a bit off-screen */
+}
+
+/* When the menu is active, animate the bounce down effect */
+#nav-links.active ul {
+    max-height: 500px; /* Adjust based on your menu content */
+    transform: translateY(0); /* Slide the menu into place */
+}
+
+/* Bouncing effect for when the menu slides in */
+@keyframes bounceIn {
+    10% {
+        transform: translateY(-50%) scaleY(0);
+    }
+    60% {
+        transform: translateY(20%) scaleY(1.1);
+    }
+    100% {
+        transform: translateY(0) scaleY(1);
+    }
+}
+
+#nav-links.active ul {
+    animation: bounceIn 0.8s ease forwards;
+}
+
+@keyframes bounceOut {
+    0% {
+        transform: translateY(0) scaleY(1);
+    }
+    60% {
+        transform: translateY(-20%) scaleY(1.1);
+    }
+    100% {
+        transform: translateY(50%) scaleY(0);
+        max-height: 0;
+        overflow: hidden;
+    }
 }
 
 
 
 
 
+/* Apply Animation to Hero Image */
+.hero-img {
+    animation: fadeIn 3s ease-in-out;
+}
+
+
+  .hero {
+    width: 100%;
+    position: relative;
+  }
+  
+  .hero-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  .hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .hero-title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(2rem, 10vw, 12rem);
+    font-family: 'Street', cursive;
+    color: white;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #2f4f4f,
+      0 0 30px #2f4f4f,
+      0 0 40px #2f4f4f,
+      0 0 50px #2f4f4f,
+      0 0 60px #ff00cc;
+    pointer-events: auto; /* or just remove this line entirely */
+    cursor: pointer;
+    z-index: 2;
+    white-space: nowrap;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+    will-change: transform, opacity;
+    animation: fadeInSpray 2s ease-out forwards;
+  }
+  
+ 
+  /* Spray fade-in */
+  @keyframes fadeInSpray {
+    0% {
+      opacity: 0;
+      
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+   
+    }
+  }
+
+/* Nav container in hero */
+#nav-links {
+  
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    pointer-events: auto; 
+    overflow: visible;
+}
+
+
+/* Nav UL is no longer needed to layout, but must exist */
+#nav-links ul {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: visible; /* Let absolutely positioned children show */
+}
+
+
+/* Nav links get glowing style */
+#nav-links ul li a {
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: none;
+    /* font-size: clamp(1rem, 2vw, 2rem); */
+    pointer-events: auto;
+    text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #2f4f4f,
+    0 0 30px #2f4f4f,
+    0 0 40px #2f4f4f,
+    0 0 50px #2f4f4f,
+    0 0 60px #ff00cc;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* When menu is active */
+#nav-links.active ul li a {
+    opacity: 1;
+}
+
+.transform-link {
+    color: #ff00cc;
+}
+
+
+
+
+
+.click-hint {
+    position: absolute;
+    top: 40%; /* vertically aligned with hero title */
+    left: calc(50% + 12vw); /* push to right of center */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    animation: flicker 1.5s infinite;
+    font-size: clamp(0.8rem, 2vw, 1.5rem); /* responsive scaling */
+}
+
+
+.arrow {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow:  0 0 10px #fff;
+    animation: flicker 1.5s infinite;
+    transform: scaleX(-1) rotate(70deg);
+
+}
+
+.click-text {
+    font-family: "Street";
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    color: #fff;
+    font-weight: bold;
+    text-shadow:  0 0 15px #fff;
+    animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+    }
+    20%, 22%, 24%, 55% {
+        opacity: 0.4;
+    }
+}
+@media (max-width: 768px) {
+    .click-hint {
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.2rem;
+    }
+
+    .arrow {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* RESEARCH */
+
+.page-title {
+    font-family: "Street";
+    text-align: center;
+    font-size: 5rem;
+    text-shadow: 0 0 30px #ff00cc; 
+}
+
+#Research{
+    /* background-image: url('images/sky3.png'); */
+    background-color: #373B41;
+}
+.content {
+    display: grid;
+    gap: 2rem;
+    grid-template-areas:
+        "main-art main-art"
+        "technical visual"
+        "industry industry";
+    grid-template-columns: repeat(2, 1fr);
+    /* max-width: 1200px; */
+    /* margin: auto; */
+    padding: 5rem;
+}
+
+/* Assign areas to each box */
+.MainArt {
+    grid-area: main-art;
+}
+.Technical {
+    grid-area: technical;
+}
+.Visual {
+    grid-area: visual;
+}
+.Industry {
+    grid-area: industry;
+}
+
+/* Shared box styling */
+.MainArt,
+.Technical,
+.Visual,
+.Industry {
+
+    background-color: #2f4f4f;;
+    padding: 1.5rem;
+    border-radius: 50px;
+    border: 2px solid #2f4f4f; /* Pink border */
+    /* box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.1), 
+        0 0 15px #2f4f4f,               
+        0 0 30px #2f4f4f;                */
+}
+
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #2f4f4f, 0 0 20px #2f4f4f;
+    }
+    50% {
+        box-shadow: 0 0 20px #2f4f4f, 0 0 40px #2f4f4f;
+    }
+    100% {
+        box-shadow: 0 0 10px #2f4f4f, 0 0 20px #2f4f4f;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* DESIGN */
+.design-img {
+    width: 100%;
+    max-width: 600px; /* Prevent images from being too large */
+    height: auto;
+    display: block;
+    margin: 1rem auto; /* Centers them horizontally with spacing */
+    border-radius: 12px; /* Optional: rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional: soft shadow */
+}
+
+@media (min-width: 768px) {
+    #Design {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    .design-img {
+        flex: 1 1 45%; /* Two per row on medium+ screens */
+        max-width: 100%;
+    }
+}
+
+#Design {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.design-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.design-text {
+    max-width: 600px;
+    padding: 0 1rem;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .design-item {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    .design-img {
+        flex: 1 1 45%;
+        max-width: 45%;
+    }
+
+    .design-text {
+        flex: 1 1 45%;
+        max-width: 45%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* STYLEGUIDE */
+/* === STYLE GUIDE PAGE === */
+#StyleGuide {
+    background-color: #373B41;
+    padding: 4rem 2rem;
+    color: #f3e8d0;
+  }
+  
+  .page-title {
+    font-family: "Street";
+    font-size: 5rem;
+    text-align: center;
+    /* text-shadow: 0 0 30px #ff00cc; */
+    margin-bottom: 3rem;
+  }
+  
+  .style-tile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  
+  .style-section {
+    background-color: #2f4f4f;
+    padding: 2rem;
+    border-radius: 30px;
+    /* border: 2px solid #ff00cc;
+    box-shadow: 0 0 15px #ff00cc; */
+  }
+  
+  .style-section h2 {
+    font-family: "Sneakers";
+    font-size: 2rem;
+    /* text-shadow: 0 0 10px #ff00cc; */
+    margin-bottom: 1rem;
+  }
+  
+  .font-sample {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .street-font {
+    font-family: 'Street';
+  }
+  
+  .sneakers-font {
+    font-family: 'Sneakers';
+  }
+  
+  .default-font {
+    font-family: 'Times New Roman', serif;
+  }
+  
+  .color-swatches {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .swatch {
+    width: 100px;
+    height: 100px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    border: 2px solid #fff;
+    /* box-shadow: 0 0 10px #ff00cc; */
+  }
+  
+  .logo-sample {
+    text-align: center;
+
+  }
+  
+  .logo-desc {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-style: italic;
+    color: #ccc;
+  }
+  
+  .visuals ul {
+    padding-left: 1.5rem;
+  }
+  
+  .visuals li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .style-tile {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .hero-title2 {
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: clamp(2rem, 10vw, 12rem);
+    font-family: 'Street', cursive;
+    color: white;
+    text-shadow:
+      0 0 0px #fff,
+      0 0 7px #fff,
+      0 0 2px #fff,
+      /* 0 0 30px #2f4f4f,
+      0 0 40px #2f4f4f, */
+      /* 0 0 30px #2f4f4f, */
+      0 0 0px #ff00cc;
+   
+    z-index: 2;
+    white-space: nowrap;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+    will-change: transform, opacity;
+    animation: fadeInSpray 2s ease-out forwards;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* ANALYSIS */
+
+  /* Analysis Page Styling */
+#Analysis {
+    background-color: #373B41;
+    padding: 4rem 2rem;
+}
+
+.analysis-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    /* background-color: #373B41;
+    border-radius: 50px;
+    border: 2px solid #ff00cc;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        0 0 20px #ff00cc,
+        0 0 40px #ff00cc; */
+}
+
+.analysis-content h1 {
+    text-align: center;
+    font-family: 'Street';
+    font-size: 4rem;
+    margin-bottom: 2rem;
+    /* text-shadow: 0 0 30px #ff00cc; */
+}
+
+.analysis-section {
+    margin-bottom: 2rem;
+}
+
+.analysis-section h2 {
+    font-size: 2rem;
+    color: #f3e8d0;
+    /* text-shadow: 0 0 10px #f3e8d0; */
+    margin-bottom: 0.5rem;
+}
+
+.analysis-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #f3e8d0;
+}
