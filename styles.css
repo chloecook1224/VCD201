@@ -789,74 +789,30 @@ nav ul {
 
 
 
+
 @media (max-width: 480px) {
-    .hero-title,
-    .hero-title2 {
-        font-size: clamp(1.5rem, 8vw, 4rem);
-        text-align: center;
-        white-space: normal;
+    nav ul {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 10px;
+      column-gap: 10px;
+      justify-items: center;
+      padding: 1rem;
     }
-
-    .click-hint {
-        font-size: 1rem;
-        top: 65%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+  
+    nav ul li {
+      margin: 0;
     }
-
-    .arrow {
-        font-size: 2rem;
-    }
-
-    .logo {
-        font-size: 1.2rem;
-        padding: 8px 12px;
-    }
-
-    .box {
-        width: 150px;
-        height: 45px;
-    }
-
+  
     nav ul li a {
-        font-size: 1rem;
+      font-size: 1rem;
+      padding: 0.5rem;
     }
-
-    .content {
-        padding: 2rem 1rem;
-        grid-template-areas:
-            "main-art"
-            "technical"
-            "visual"
-            "industry";
-        grid-template-columns: 1fr;
+  
+    /* Optional: Reduce overall nav box size */
+    .box {
+      width: 100px;
+      height: 40px;
     }
-
-    .design-item {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .design-img,
-    .design-text {
-        max-width: 100%;
-    }
-
-    .page-title {
-        font-size: 2.5rem;
-    }
-
-    .style-section h2 {
-        font-size: 1.2rem;
-    }
-
-    .font-sample {
-        font-size: 1rem;
-    }
-
-    .swatch {
-        width: 70px;
-        height: 70px;
-    }
-}
+  }
+  
