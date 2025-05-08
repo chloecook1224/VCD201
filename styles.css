@@ -1,7 +1,4 @@
-/* Import Fonts */
 
-
-/* Custom Font */
 @font-face {
     font-family: 'Sneakers';
     src: url('fonts/Sneakers.woff2') format('woff2'),
@@ -786,4 +783,80 @@ nav ul {
     font-size: 1.1rem;
     line-height: 1.6;
     color: #f3e8d0;
+}
+
+
+
+
+
+@media (max-width: 480px) {
+    .hero-title,
+    .hero-title2 {
+        font-size: clamp(1.5rem, 8vw, 4rem);
+        text-align: center;
+        white-space: normal;
+    }
+
+    .click-hint {
+        font-size: 1rem;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .arrow {
+        font-size: 2rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+        padding: 8px 12px;
+    }
+
+    .box {
+        width: 150px;
+        height: 45px;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    .content {
+        padding: 2rem 1rem;
+        grid-template-areas:
+            "main-art"
+            "technical"
+            "visual"
+            "industry";
+        grid-template-columns: 1fr;
+    }
+
+    .design-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .design-img,
+    .design-text {
+        max-width: 100%;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .style-section h2 {
+        font-size: 1.2rem;
+    }
+
+    .font-sample {
+        font-size: 1rem;
+    }
+
+    .swatch {
+        width: 70px;
+        height: 70px;
+    }
 }
